@@ -17,7 +17,7 @@ const app = createApp(App)
 app.use(ElementPlus, {
   locale: zhCn,
 })
-app.use(globalComponent);
-app.use(router);
+app.use(globalComponent)
+app.use(router)
 
 app.mount('#app')
