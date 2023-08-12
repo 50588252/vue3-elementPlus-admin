@@ -29,19 +29,19 @@ import Logo from './logo/index.vue'
 
   .layout_tabbar {
     position: fixed;
+    top: 0;
+    left: $base-menu-width;
     width: calc(100% - $base-menu-width);
     height: $base-tabbar-height;
-    top: 0px;
-    left: $base-menu-width;
     background-color: green;
   }
 
   .layout_main {
     position: absolute;
+    top: $base-tabbar-height;
+    left: $base-menu-width;
     width: calc(100% - $base-menu-width);
     height: calc(100vh - $base-tabbar-height);
-    left: $base-menu-width;
-    top: $base-tabbar-height;
     padding: 20px;
     overflow: auto;
     transition: all 0.3s;

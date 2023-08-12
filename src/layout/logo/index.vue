@@ -16,19 +16,21 @@ export default {
 </script>
 <style scoped lang="scss">
 .logo {
-  width: 100%;
-  height: $base-menu-logo-height;
-  color: white;
   display: flex;
   align-items: center;
+  width: 100%;
+  height: $base-menu-logo-height;
   padding: 10px;
+  color: white;
+
   img {
     width: 40px;
     height: 40px;
   }
+
   p {
-    font-size: $base-logo-title-fontSize;
     margin-left: 10px;
+    font-size: $base-logo-title-fontSize;
   }
 }
 </style>
