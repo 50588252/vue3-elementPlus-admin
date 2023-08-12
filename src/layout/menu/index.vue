@@ -47,22 +47,21 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 //获取父组件传递过来的全部路由数据
 defineProps(['menuList'])
 //获取路由器对象
-let $router = useRouter();
+let $router = useRouter()
 //点击菜单的回调
 const goRoute = (vc: any) => {
   //路由跳转
-  $router.push(vc.index);
+  $router.push(vc.index)
 }
 </script>
 <script lang="ts">
 export default {
-  name: 'Menu'
+  name: 'Menu',
 }
 </script>
-
 
 <style scoped lang="scss"></style>
