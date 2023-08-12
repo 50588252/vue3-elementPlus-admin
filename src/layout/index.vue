@@ -4,7 +4,10 @@
       <Logo></Logo>
     </div>
     <div class="layout_tabbar">456</div>
-    <div class="layout_main">789<h1 style="height: 3000px"></h1></div>
+    <div class="layout_main">
+      789
+      <h1 style="height: 3000px"></h1>
+    </div>
   </div>
 </template>
 
@@ -18,13 +21,13 @@ import Logo from './logo/index.vue'
   height: 100vh;
   background-color: red;
 
-  .layout_slider{
+  .layout_slider {
     width: $base-menu-width;
     height: 100vh;
     background-color: $base-menu-background;
   }
 
-  .layout_tabbar{
+  .layout_tabbar {
     position: fixed;
     width: calc(100% - $base-menu-width);
     height: $base-tabbar-height;
@@ -43,6 +46,5 @@ import Logo from './logo/index.vue'
     overflow: auto;
     transition: all 0.3s;
   }
-
 }
 </style>
