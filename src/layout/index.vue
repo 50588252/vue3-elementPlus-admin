@@ -2,17 +2,25 @@
   <div class="layout_container">
     <div class="layout_slider">
       <Logo></Logo>
+      <el-scrollbar class="scrollbar">
+        <el-menu background-color="#001529" text-color="white">
+          <Menu :menuList="userStore.menuRoutes"></Menu>
+        </el-menu>
+      </el-scrollbar>
     </div>
     <div class="layout_tabbar">456</div>
     <div class="layout_main">
-      789
-      <h1 style="height: 3000px"></h1>
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import Logo from './logo/index.vue'
+import Menu from './menu/index.vue'
+//获取用户相关的小仓库
+import useUserStore from '@/store/modules/user';
+let userStore = useUserStore();
 </script>
 
 <style scoped lang="scss">
@@ -25,6 +33,14 @@ import Logo from './logo/index.vue'
     width: $base-menu-width;
     height: 100vh;
     background-color: $base-menu-background;
+    color: white;
+    .scrollbar {
+      width: 100%;
+      height: calc(100vh - $base-menu-logo-height);
+      .el-menu {
+        border-right: none;
+      }
+    }
   }
 
   .layout_tabbar {
