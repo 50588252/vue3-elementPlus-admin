@@ -11,7 +11,7 @@ import '@/styles/index.scss'
 
 //引入路由
 import router from './router'
-// import router from '@/router'
+import pinia from './store'
 
 const app = createApp(App)
 app.use(ElementPlus, {
@@ -19,5 +19,6 @@ app.use(ElementPlus, {
 })
 app.use(globalComponent)
 app.use(router)
+app.use(pinia)
 
 app.mount('#app')
