@@ -1,5 +1,7 @@
 <template>
-  <h1>我是根节点</h1>
+  <div>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script setup lang="ts"></script>

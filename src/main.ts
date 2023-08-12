@@ -9,10 +9,15 @@ import globalComponent from './components/index'
 //引入css样式
 import '@/styles/index.scss'
 
+//引入路由
+import router from './router'
+// import router from '@/router'
+
 const app = createApp(App)
 app.use(ElementPlus, {
   locale: zhCn,
 })
-app.use(globalComponent)
+app.use(globalComponent);
+app.use(router);
 
 app.mount('#app')
