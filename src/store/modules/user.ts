@@ -24,7 +24,7 @@ const useUserStore = defineStore('User', {
   actions: {
     //用户登录
     async userLogin(data: loginFormData) {
-      const result: loginResponseData = await reqLogin(data);
+      const result: loginResponseData = await reqLogin(data)
       console.log(result)
       if (result.code == 200) {
         //pinia仓库存储一下token
