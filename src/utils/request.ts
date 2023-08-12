@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
 //创建axios实例
-let request = axios.create({
+const request = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API,
   timeout: 5000,
 })
@@ -17,7 +17,7 @@ request.interceptors.response.use(
   (error) => {
     //处理网络错误
     let msg = ''
-    let status = error.response.status
+    const status = error.response.status
     switch (status) {
       case 401:
         msg = 'token过期'
