@@ -1,13 +1,17 @@
 //创建用户相关的小仓库
 import { defineStore } from 'pinia'
 //引入接口
-import { reqLogin } from '@/api/user'
+import { reqLogin, reqLogout, reqUserInfo } from '@/api/user'
 //引入数据类型
-import type { loginFormData, loginResponseData } from '@/api/user/type.ts'
+import type {
+  loginFormData,
+  loginResponseData,
+  userInfoReponseData,
+} from '@/api/user/type.ts'
 import type { UserState } from './types/type'
 //引入路由(常量路由)
 import { constantRoute } from '@/router/routes'
-import { GET_TOKEN, SET_TOKEN } from '@/utils/token.ts'
+import { GET_TOKEN, REMOVE_TOKEN, SET_TOKEN } from '@/utils/token.ts'
 //创建用户小仓库
 const useUserStore = defineStore('User', {
   //小仓库存储数据地方
@@ -25,7 +29,6 @@ const useUserStore = defineStore('User', {
     //用户登录
     async userLogin(data: loginFormData) {
       const result: loginResponseData = await reqLogin(data)
-      console.log(result)
       if (result.code == 200) {
         //pinia仓库存储一下token
         //由于pinia|vuex存储数据  其实利用js对象
@@ -36,6 +39,34 @@ const useUserStore = defineStore('User', {
         return 'ok'
       } else {
         return Promise.reject(new Error(result.data))
+      }
+    },
+    //获取用户信息方法
+    async userInfo() {
+      //获取用户信息进行存储仓库当中[用户头像、名字]
+      const result: userInfoReponseData = await reqUserInfo()
+      //如果获取用户信息成功，存储一下用户信息
+      if (result.code == 200) {
+        this.username = result.data.name;
+        this.avatar = result.data.avatar;
+        return 'ok';
+      } else {
+        return Promise.reject(new Error(result.message));
+      }
+    },
+    //退出登录
+    async userLogout() {
+      //退出登录请求
+      const result: any = await reqLogout();
+      if (result.code == 200) {
+        //目前没有mock接口:退出登录接口(通知服务器本地用户唯一标识失效)
+        this.token = ''
+        this.username = ''
+        this.avatar = ''
+        REMOVE_TOKEN()
+        return 'ok'
+      } else {
+        return Promise.reject(new Error(result.message))
       }
     },
   },

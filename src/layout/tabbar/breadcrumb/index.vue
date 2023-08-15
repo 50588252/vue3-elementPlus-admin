@@ -21,7 +21,7 @@ const changeIcon = () => {
       v-show="item.meta.title"
       :to="item.path"
     >
-      <el-icon style="vertical-align: middle">
+      <el-icon style="vertical-align: middle" v-if="item.meta.icon">
         <component :is="item.meta.icon"></component>
       </el-icon>
       <span style="margin: 0 5px; vertical-align: middle">
