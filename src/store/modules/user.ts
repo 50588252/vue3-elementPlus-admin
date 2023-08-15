@@ -47,17 +47,17 @@ const useUserStore = defineStore('User', {
       const result: userInfoReponseData = await reqUserInfo()
       //如果获取用户信息成功，存储一下用户信息
       if (result.code == 200) {
-        this.username = result.data.name;
-        this.avatar = result.data.avatar;
-        return 'ok';
+        this.username = result.data.name
+        this.avatar = result.data.avatar
+        return 'ok'
       } else {
-        return Promise.reject(new Error(result.message));
+        return Promise.reject(new Error(result.message))
       }
     },
     //退出登录
     async userLogout() {
       //退出登录请求
-      const result: any = await reqLogout();
+      const result: any = await reqLogout()
       if (result.code == 200) {
         //目前没有mock接口:退出登录接口(通知服务器本地用户唯一标识失效)
         this.token = ''
