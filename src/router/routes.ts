@@ -7,7 +7,7 @@ export const constantRoute = [
     name: 'login',
     meta: {
       title: '登录', //菜单标题
-      hidden: false, //代表路由标题在菜单中是否隐藏  true:隐藏 false:不隐藏
+      hidden: true, //代表路由标题在菜单中是否隐藏  true:隐藏 false:不隐藏
       icon: 'Promotion', //菜单文字左侧的图标,支持element-plus全部图标
     },
   },
@@ -51,7 +51,7 @@ export const constantRoute = [
     component: () => import('@/views/screen/index.vue'),
     name: 'screen',
     meta: {
-      title: 'screen',
+      title: '数据大屏',
       hidden: false,
       icon: 'DataLine',
     },

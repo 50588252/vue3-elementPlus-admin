@@ -10,7 +10,7 @@ import useUserStore from '@/store/modules/user.ts'
 
 let userStore = useUserStore()
 onMounted(() => {
-  userStore.userInfo()
+  //userStore.userInfo()
 })
 </script>
 
