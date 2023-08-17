@@ -10,8 +10,24 @@ import type {
 } from '@/api/user/type.ts'
 import type { UserState } from './types/type'
 //引入路由(常量路由)
-import { constantRoute } from '@/router/routes'
+import {anyRoute, asyncRoute, constantRoute} from '@/router/routes'
 import { GET_TOKEN, REMOVE_TOKEN, SET_TOKEN } from '@/utils/token.ts'
+
+// @ts-ignore
+import cloneDeep from 'lodash/cloneDeep'
+import router from "@/router";
+
+function filterAsyncRoute(asyncRoute: any, routes: any) {
+  return asyncRoute.filter((item: any) => {
+    if (routes.includes(item.name)) {
+      if (item.children && item.children.length > 0) {
+        item.children = filterAsyncRoute(item.children, routes)
+      }
+      return true
+    }
+  })
+}
+
 //创建用户小仓库
 const useUserStore = defineStore('User', {
   //小仓库存储数据地方
@@ -49,6 +65,15 @@ const useUserStore = defineStore('User', {
       if (result.code == 200) {
         this.username = result.data.name
         this.avatar = result.data.avatar
+
+        const userAsyncRoute = filterAsyncRoute(
+          cloneDeep(asyncRoute),
+          result.data.routes,
+        )
+        this.menuRoutes = [...constantRoute, ...userAsyncRoute, anyRoute]
+        ;[...userAsyncRoute, anyRoute].forEach((route: any) => {
+          router.addRoute(route)
+        })
         return 'ok'
       } else {
         return Promise.reject(new Error(result.message))
