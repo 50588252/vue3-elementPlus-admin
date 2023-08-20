@@ -99,7 +99,7 @@ const login = async () => {
   }
 }
 //自定义校验规则函数
-const validatorUserName = (value: any, callback: any) => {
+const validatorUserName = (_rule: any, value: any, callback: any) => {
   //rule:即为校验规则对象
   //value:即为表单元素文本内容
   //函数:如果符合条件callBack放行通过即为
@@ -111,7 +111,7 @@ const validatorUserName = (value: any, callback: any) => {
   }
 }
 
-const validatorPassword = (value: any, callback: any) => {
+const validatorPassword = (_rule: any, value: any, callback: any) => {
   if (value.length >= 6) {
     callback()
   } else {
@@ -148,19 +148,23 @@ const rules = {
     position: relative;
     top: 30vh;
     width: 80%;
+    top: 30vh;
     padding: 40px;
     background: url('@/assets/images/login_form.png') no-repeat;
     background-size: cover;
+    padding: 40px;
 
     h1 {
       font-size: 40px;
       color: white;
+      font-size: 40px;
     }
 
     h2 {
       margin: 20px 0;
       font-size: 20px;
       color: white;
+      margin: 20px 0px;
     }
 
     .login_btn {

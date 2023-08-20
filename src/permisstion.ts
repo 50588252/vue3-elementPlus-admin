@@ -12,7 +12,7 @@ import pinia from './store'
 const userStore = useUserStore(pinia)
 //全局守卫:项目当中任意路由切换都会触发的钩子
 //全局前置守卫
-router.beforeEach(async (to: any, next: any) => {
+router.beforeEach(async (to: any, _from: any, next: any) => {
   document.title = `${setting.title} - ${to.meta.title}`
   //to:你将要访问那个路由
   //from:你从来个路由而来
@@ -60,7 +60,8 @@ router.beforeEach(async (to: any, next: any) => {
   }
 })
 //全局后置守卫
-router.afterEach(() => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+router.afterEach((_to: any, _from: any) => {
   nprogress.done()
 })
 
