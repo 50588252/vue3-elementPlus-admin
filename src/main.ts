@@ -5,6 +5,8 @@ import 'element-plus/dist/index.css'
 // @ts-expect-error忽略当前文件ts类型的检测否则有红色提示(打包会失败)
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import 'virtual:svg-icons-register'
+// 增加暗黑模式
+import 'element-plus/theme-chalk/dark/css-vars.css'
 import globalComponent from './components/index'
 //引入css样式
 import '@/styles/index.scss'

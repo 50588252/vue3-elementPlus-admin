@@ -26,6 +26,7 @@ export const constantRoute = [
           title: '首页',
           hidden: false,
           icon: 'HomeFilled',
+          affix: true,
         },
       },
     ],
