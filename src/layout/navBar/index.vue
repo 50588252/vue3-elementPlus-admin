@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import BreadCrumb from './breadcrumb/index.vue'
 import Setting from './setting/index.vue'
-import LayoutTabsBar from "@/layout/tabbar/index.vue";
+import LayoutTabsBar from '@/layout/tabbar/index.vue'
 </script>
 <template>
   <el-header style="text-align: right; font-size: 12px">
@@ -34,7 +34,7 @@ import LayoutTabsBar from "@/layout/tabbar/index.vue";
     display: flex;
     align-items: center;
   }
-  .toolbar_bars{
+  .toolbar_bars {
     //align-items: center;
   }
 }
