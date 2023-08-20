@@ -3,7 +3,7 @@ import { computed, defineComponent, ref, onMounted, watch } from 'vue'
 import { useTabsBarStore } from '@/store/modules/tabsBar.ts'
 import { useRoute, useRouter, RouteRecordRaw } from 'vue-router'
 import { TabsPaneContext, TabPaneName } from 'element-plus'
-import path from 'path-browserify'
+import pathBrowser from 'path-browserify'
 import useUserStore from '@/store/modules/user.ts'
 import { routersType } from './types.ts'
 
@@ -36,7 +36,7 @@ export default defineComponent({
       routes.forEach((route) => {
         if (route.meta && route.meta.affix) {
           // 获取 path
-          const tagPath = path.resolve(basePath, route.path)
+          const tagPath = pathBrowser.resolve(basePath, route.path)
           tags.push({
             fullPath: tagPath,
             path: tagPath,
