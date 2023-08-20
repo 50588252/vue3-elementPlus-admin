@@ -1,5 +1,5 @@
 <template>
-  <template v-for="(item, index) in menuList" :key="item.path">
+  <template v-for="item in menuList" :key="item.path">
     <!--没有子路由-->
     <template v-if="!item.children">
       <el-menu-item
@@ -47,9 +47,10 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
+
 //获取父组件传递过来的全部路由数组
 defineProps(['menuList'])
-import { useRouter } from 'vue-router'
 //获取路由器对象
 let $router = useRouter()
 //点击菜单的回调

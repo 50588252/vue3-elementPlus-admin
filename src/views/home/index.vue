@@ -9,11 +9,9 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import useUserStore from '@/store/modules/user.ts'
 
-let userStore = useUserStore()
 onMounted(() => {
-  //userStore.userInfo()
+  console.log('进入首页了')
 })
 </script>
 
