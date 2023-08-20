@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import BreadCrumb from './breadcrumb/index.vue'
 import Setting from './setting/index.vue'
-import LayoutTabsBar from '@/layout/tabbar/index.vue'
+import LayoutTabsBar from '@/layout/navBar/tabbar/index.vue'
 </script>
 <template>
   <div class="main">

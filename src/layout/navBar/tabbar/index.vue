@@ -1,11 +1,11 @@
 <script lang="ts">
 import { computed, defineComponent, ref, onMounted, watch } from 'vue'
-import { useTabsBarStore } from '@/store/modules/tabsBar'
+import { useTabsBarStore } from '@/store/modules/tabsBar.ts'
 import { useRoute, useRouter, RouteRecordRaw } from 'vue-router'
 import { TabsPaneContext, TabPaneName } from 'element-plus'
 import path from 'path-browserify'
 import useUserStore from '@/store/modules/user.ts'
-import { routersType } from './types'
+import { routersType } from './types.ts'
 
 export default defineComponent({
   setup() {
@@ -192,5 +192,5 @@ export default defineComponent({
   </div>
 </template>
 <style lang="scss" scoped>
-@import './index';
+@import 'index';
 </style>
