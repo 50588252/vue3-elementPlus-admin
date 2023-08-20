@@ -1,10 +1,3 @@
-<!--
- * @Description: Stay hungry，Stay foolish
- * @Author: Huccct
- * @Date: 2023-05-20 20:25:03
- * @LastEditors: Huccct
- * @LastEditTime: 2023-05-26 21:50:47
--->
 <script setup lang="ts">
 import Logo from './logo/index.vue'
 import Menu from './menu/index.vue'
@@ -22,7 +15,7 @@ let LayOutSettingStore = useLayOutSettingStore()
 <template>
   <el-container class="layout-container-demo" style="height: 100vh">
     <el-aside
-      width="200px"
+      width="230px"
       :class="{ isCollapse: LayOutSettingStore.isCollapse ? true : false }"
     >
       <el-scrollbar>
@@ -44,10 +37,10 @@ let LayOutSettingStore = useLayOutSettingStore()
       <TabBar style="width: 100%" />
       <el-main
         :style="{
-          left: !LayOutSettingStore.isCollapse ? '200px' : '56px',
+          left: !LayOutSettingStore.isCollapse ? '230px' : '56px',
           width: LayOutSettingStore.isCollapse
             ? 'calc(100% - 56px)'
-            : 'calc(100% - 200px)',
+            : 'calc(100% - 230px)',
         }"
       >
         <el-scrollbar>
@@ -67,7 +60,7 @@ let LayOutSettingStore = useLayOutSettingStore()
 .layout-container-demo .el-main {
   position: absolute;
   padding: 20px;
-  left: 200px;
+  left: 230px;
   top: 60px;
   transition: all 0.3s;
   width: calc(100% - $base-menu-width);

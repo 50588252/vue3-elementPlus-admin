@@ -10,12 +10,13 @@ import type {
 } from '@/api/user/type.ts'
 import type { UserState } from './types/type'
 //引入路由(常量路由)
-import {anyRoute, asyncRoute, constantRoute} from '@/router/routes'
+import { anyRoute, asyncRoute, constantRoute } from '@/router/routes'
 import { GET_TOKEN, REMOVE_TOKEN, SET_TOKEN } from '@/utils/token.ts'
 
 // @ts-ignore
 import cloneDeep from 'lodash/cloneDeep'
-import router from "@/router";
+import router from '@/router'
+import {ref} from "vue";
 
 function filterAsyncRoute(asyncRoute: any, routes: any) {
   return asyncRoute.filter((item: any) => {
@@ -65,6 +66,7 @@ const useUserStore = defineStore('User', {
       if (result.code == 200) {
         this.username = result.data.name
         this.avatar = result.data.avatar
+        this.buttons = result.data.buttons
 
         const userAsyncRoute = filterAsyncRoute(
           cloneDeep(asyncRoute),
@@ -88,6 +90,7 @@ const useUserStore = defineStore('User', {
         this.token = ''
         this.username = ''
         this.avatar = ''
+        this.buttons = ['']
         REMOVE_TOKEN()
         return 'ok'
       } else {

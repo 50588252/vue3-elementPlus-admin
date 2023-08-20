@@ -12,6 +12,7 @@ import '@/styles/index.scss'
 //引入路由
 import router from './router'
 import pinia from './store'
+import { isHasButton } from './directive/has'
 
 const app = createApp(App)
 app.use(ElementPlus, {
@@ -20,6 +21,7 @@ app.use(ElementPlus, {
 app.use(globalComponent)
 app.use(router)
 app.use(pinia)
+isHasButton(app)
 
 //引入路由鉴权
 import './permisstion.ts'
