@@ -13,11 +13,11 @@ let $route = useRoute()
 let LayOutSettingStore = useLayOutSettingStore()
 </script>
 <template>
-  <el-container class="layout-container-demo" style="height: 100vh">
+  <el-container class="layout-container-demo">
     <!--菜单部分-->
     <el-aside
       width="230px"
-      :class="{ isCollapse: LayOutSettingStore.isCollapse ? true : false }"
+      :class="{ isCollapse: !!LayOutSettingStore.isCollapse }"
     >
       <el-scrollbar>
         <el-menu
@@ -39,14 +39,7 @@ let LayOutSettingStore = useLayOutSettingStore()
       <!--上面的路由部分 面包屑+设置-->
       <TabBar class="tabBar" />
       <!--中间路由页面展示部分-->
-      <el-main
-        :style="{
-          left: !LayOutSettingStore.isCollapse ? '230px' : '56px',
-          width: LayOutSettingStore.isCollapse
-            ? 'calc(100% - 56px)'
-            : 'calc(100% - 230px)',
-        }"
-      >
+      <el-main class="mainContainer">
         <!--路由展示抽出的组件-->
         <el-scrollbar>
           <Main />
@@ -57,23 +50,26 @@ let LayOutSettingStore = useLayOutSettingStore()
 </template>
 <style lang="scss" scoped>
 .layout-container-demo {
-  height: 100%;
+  height: 100vh;
+  //height: 100%;
   .container .tabBar {
     width: 100%;
     height: $base-tabbar-height;
   }
+  .container {
+    .mainContainer {
+      padding: 20px;
+      position: absolute;
+      left: 230px;
+      top: $base-tabbar-height;
+      transition: all 0.3s;
+      width: calc(100% - $base-menu-width);
+      height: calc(100vh - $base-tabbar-height - 10px);
+    }
+  }
 }
 .layout-container-demo .el-menu {
   border-right: none;
-}
-.layout-container-demo .el-main {
-  position: absolute;
-  padding: 20px;
-  left: 230px;
-  top: $base-tabbar-height;
-  transition: all 0.3s;
-  width: calc(100% - $base-menu-width);
-  height: calc(100vh - $base-tabbar-height - 10px);
 }
 
 .el-aside {
