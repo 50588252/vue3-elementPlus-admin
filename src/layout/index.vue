@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Logo from './logo/index.vue'
 import Menu from './menu/index.vue'
-import TabBar from './tabbar/index.vue'
+import TabBar from './navBar/index.vue'
 import Main from './main/index.vue'
 import useLayOutSettingStore from '@/store/modules/setting'
 import useUserStore from '@/store/modules/user'
@@ -14,6 +14,7 @@ let LayOutSettingStore = useLayOutSettingStore()
 </script>
 <template>
   <el-container class="layout-container-demo" style="height: 100vh">
+    <!--菜单部分-->
     <el-aside
       width="230px"
       :class="{ isCollapse: LayOutSettingStore.isCollapse ? true : false }"
@@ -33,8 +34,11 @@ let LayOutSettingStore = useLayOutSettingStore()
       </el-scrollbar>
     </el-aside>
 
+    <!--中间容器部分-->
     <el-container class="container">
-      <TabBar style="width: 100%" />
+      <!--上面的路由部分 面包屑+设置-->
+      <TabBar class="tabBar" />
+      <!--中间路由页面展示部分-->
       <el-main
         :style="{
           left: !LayOutSettingStore.isCollapse ? '230px' : '56px',
@@ -43,6 +47,7 @@ let LayOutSettingStore = useLayOutSettingStore()
             : 'calc(100% - 230px)',
         }"
       >
+        <!--路由展示抽出的组件-->
         <el-scrollbar>
           <Main />
         </el-scrollbar>
@@ -53,6 +58,10 @@ let LayOutSettingStore = useLayOutSettingStore()
 <style lang="scss" scoped>
 .layout-container-demo {
   height: 100%;
+  .container .tabBar {
+    width: 100%;
+    height: $base-tabbar-height;
+  }
 }
 .layout-container-demo .el-menu {
   border-right: none;
@@ -61,10 +70,10 @@ let LayOutSettingStore = useLayOutSettingStore()
   position: absolute;
   padding: 20px;
   left: 230px;
-  top: 60px;
+  top: $base-tabbar-height;
   transition: all 0.3s;
   width: calc(100% - $base-menu-width);
-  height: calc(100vh - 60px);
+  height: calc(100vh - $base-tabbar-height - 10px);
 }
 
 .el-aside {

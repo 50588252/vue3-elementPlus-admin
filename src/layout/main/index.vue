@@ -1,10 +1,3 @@
-<!--
- * @Description: Stay hungry，Stay foolish
- * @Author: Huccct
- * @Date: 2023-05-21 17:22:48
- * @LastEditors: Huccct
- * @LastEditTime: 2023-05-21 20:58:27
--->
 <script setup lang="ts">
 import useLayOutSettingStore from '@/store/modules/setting'
 import { watch, ref, nextTick } from 'vue'
