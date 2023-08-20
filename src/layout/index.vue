@@ -51,7 +51,6 @@ let LayOutSettingStore = useLayOutSettingStore()
 <style lang="scss" scoped>
 .layout-container-demo {
   height: 100vh;
-  //height: 100%;
   .container .tabBar {
     width: 100%;
     height: $base-tabbar-height;

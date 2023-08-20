@@ -110,8 +110,8 @@ export const useTabsBarStore = defineStore({
       })
     },
     goHome() {
-      this.activeTabsValue = '/index'
-      router.push({ path: '/index' })
+      this.activeTabsValue = '/home'
+      router.push({ path: '/home' })
     },
     updateVisitedView(view: RouteRecordRaw) {
       for (let v of this.visitedViews) {
